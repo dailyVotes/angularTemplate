@@ -1,0 +1,35 @@
+# azure-pipelines.yml
+trigger:
+- main  # Trigger the pipeline when changes are pushed to the main branch
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use a Linux agent
+
+steps:
+# 1. Checkout the repository
+- task: Checkout@1
+  displayName: 'Checkout repository'
+
+# 2. Install Node.js
+- task: UseNode@1
+  displayName: 'Install Node.js'
+  inputs:
+    version: '16.x'  # Specify the Node.js version required for your Angular project
+
+# 3. Install npm dependencies
+- script: |
+    npm install
+  displayName: 'Install npm dependencies'
+
+# 4. Build the Angular application
+- script: |
+    npx ng build --configuration production
+  displayName: 'Build Angular application'
+
+# 5. Publish build artifacts
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish build artifacts'
+  inputs:
+    targetPath: 'dist'  # Replace 'dist' with the actual output directory of your Angular build
+    artifact: 'angular-template-build'
+    publishLocation: 'pipeline'

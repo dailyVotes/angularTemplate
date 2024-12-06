@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": true, // Enable declaration files for better type safety and reuse
+    "module": "es2020",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true, // Emit metadata for DI (useful in Angular)
+    "target": "ES2022",
+    "typeRoots": ["node_modules/@types"],
+    "types": ["facebook-js-sdk"], // Include Facebook SDK types
+    "lib": ["es2018", "dom"],
+    "useDefineForClassFields": false,
+    "strict": true, // Enable all strict type-checking options
+    "noImplicitAny": true, // Disallow variables with an implicit 'any' type
+    "strictNullChecks": true, // Ensure null/undefined are handled explicitly
+    "strictBindCallApply": true, // Check argument types in bind, call, apply
+    "strictFunctionTypes": true, // Ensure function parameter types are checked
+    "strictPropertyInitialization": true, // Ensure class properties are initialized
+    "noUnusedLocals": true, // Report unused local variables
+    "noUnusedParameters": true, // Report unused function parameters
+    "noImplicitReturns": true, // Ensure all code paths in a function return a value
+    "noFallthroughCasesInSwitch": true, // Ensure 'switch' statements have no fallthrough
+    "esModuleInterop": true, // Enable compatibility with CommonJS modules
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file name casing
+    "skipLibCheck": true, // Skip type checking for declaration files
+    "resolveJsonModule": true, // Allow importing JSON files as modules
+    "isolatedModules": true, // Enforce file-level isolation for better builds
+    "incremental": true // Enable faster incremental builds
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true, // Strict template checks
+    "strictInjectionParameters": true, // Ensure DI parameters are strictly typed
+    "strictInputTypes": true, // Enforce strict type checking for @Input properties
+    "strictOutputEventTypes": true, // Enforce strict type checking for @Output events
+    "strictDomLocalRefTypes": true, // Strict types for local DOM references
+    "enableIvy": true // Ensure Ivy is enabled (default in Angular >=9)
+  }
+}
